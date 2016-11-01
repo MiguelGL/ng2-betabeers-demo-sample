@@ -1,0 +1,17 @@
+<h1>GitHub User: <em>{{username}}</em> <small>Repositories</small></h1>
+<div class="alert alert-warning" *ngIf="!found">
+  <strong>GitHub Username Not Found</strong>
+  No such GitHub user '{{username}}'
+</div>
+<div class="alert alert-danger" *ngIf="error">
+  <strong>Error Loading Repos</strong>
+  {{error}}
+</div>
+<div *ngIf="loading">
+  <p>Loading...</p>
+</div>
+<div *ngIf="found">
+  <ul *ngFor="let repo of repos">
+    <li>{{repo.full_name}} <a target="_blank" [href]="repo.html_url">{{repo.html_url}}</a></li>
+  </ul>
+<div>
